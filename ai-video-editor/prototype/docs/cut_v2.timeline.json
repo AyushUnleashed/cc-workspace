@@ -1,0 +1,204 @@
+{
+ "fps": "30/1",
+ "width": 960,
+ "height": 540,
+ "tracks": [
+  {
+   "id": "V1",
+   "kind": "video",
+   "items": [
+    {
+     "id": "c1",
+     "kind": "clip",
+     "rec_in": 241,
+     "duration": 106,
+     "media": "maya",
+     "src_in": 14,
+     "params": {},
+     "provenance": {
+      "by": "agent",
+      "reason": "hook: stakes in one line"
+     }
+    },
+    {
+     "id": "c6",
+     "kind": "clip",
+     "rec_in": 656,
+     "duration": 120,
+     "media": "broll_stage",
+     "src_in": 0,
+     "params": {},
+     "provenance": {
+      "by": "agent",
+      "reason": "end on energy"
+     }
+    },
+    {
+     "id": "c11",
+     "kind": "clip",
+     "rec_in": 347,
+     "duration": 309,
+     "media": "maya",
+     "src_in": 145,
+     "params": {},
+     "provenance": {
+      "by": "agent",
+      "reason": "story: crash \u2192 recovery"
+     }
+    },
+    {
+     "id": "c12",
+     "kind": "clip",
+     "rec_in": 0,
+     "duration": 241,
+     "media": "raj",
+     "src_in": 37,
+     "params": {},
+     "provenance": {
+      "by": "agent",
+      "reason": "proof: customer voice"
+     }
+    }
+   ]
+  },
+  {
+   "id": "V2",
+   "kind": "overlay",
+   "items": [
+    {
+     "id": "c4",
+     "kind": "clip",
+     "rec_in": 486,
+     "duration": 90,
+     "media": "broll_team_night",
+     "src_in": 0,
+     "params": {
+      "anchor": {
+       "item": "c11",
+       "offset": 139
+      }
+     },
+     "provenance": {
+      "by": "agent",
+      "reason": "show the team while she says it"
+     }
+    },
+    {
+     "id": "c5",
+     "kind": "clip",
+     "rec_in": 150,
+     "duration": 75,
+     "media": "broll_signup",
+     "src_in": 0,
+     "params": {
+      "anchor": {
+       "item": "c12",
+       "offset": 150
+      }
+     },
+     "provenance": {
+      "by": "agent",
+      "reason": "visualize 'signed up'"
+     }
+    }
+   ]
+  },
+  {
+   "id": "G1",
+   "kind": "graphics",
+   "items": [
+    {
+     "id": "g7",
+     "kind": "motion",
+     "rec_in": 249,
+     "duration": 90,
+     "media": null,
+     "src_in": 0,
+     "params": {
+      "template": "lower_third",
+      "props": {
+       "name": "Maya Chen",
+       "title": "Co-founder"
+      },
+      "anchor": {
+       "item": "c1",
+       "offset": 8
+      }
+     },
+     "provenance": {
+      "by": "agent",
+      "reason": "identify Maya Chen"
+     }
+    },
+    {
+     "id": "g8",
+     "kind": "motion",
+     "rec_in": 0,
+     "duration": 90,
+     "media": null,
+     "src_in": 0,
+     "params": {
+      "template": "lower_third",
+      "props": {
+       "name": "Raj Patel",
+       "title": "Customer, Acme Corp"
+      },
+      "anchor": {
+       "item": "c12",
+       "offset": 0
+      }
+     },
+     "provenance": {
+      "by": "agent",
+      "reason": "identify Raj Patel"
+     }
+    },
+    {
+     "id": "g9",
+     "kind": "motion",
+     "rec_in": 656,
+     "duration": 75,
+     "media": null,
+     "src_in": 0,
+     "params": {
+      "template": "title_card",
+      "props": {
+       "text": "SHIPPED.",
+       "subtitle": "Launch day 2026"
+      },
+      "anchor": {
+       "item": "c6",
+       "offset": 0
+      }
+     },
+     "provenance": {
+      "by": "agent",
+      "reason": "branded title"
+     }
+    }
+   ]
+  },
+  {
+   "id": "M1",
+   "kind": "music",
+   "items": [
+    {
+     "id": "m10",
+     "kind": "music",
+     "rec_in": 0,
+     "duration": 776,
+     "media": "music_upbeat",
+     "src_in": 0,
+     "params": {
+      "gain_db": -9,
+      "duck": true
+     },
+     "provenance": {
+      "by": "agent",
+      "reason": "energy bed, ducked under speech"
+     }
+    }
+   ]
+  }
+ ]
+}
