@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        /* Field-test log identity: ink + cream + one terracotta accent. Mono for metadata, Montserrat for voice. */
+        #root { position: absolute; inset: 0; --ink: #16120F; --cream: #F5EEE3; --accent: #EE7B3B; --muted: #D9CBB8; }
+        .row { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; }
+        .row.left { justify-content: flex-start; padding-left: 108px; }
+        .chip {
+          display: flex; align-items: center; gap: 18px; height: 84px; padding: 0 36px;
+          border-radius: 999px; background: rgba(22, 18, 15, 0.9);
+          border: 3px solid var(--accent); color: var(--cream);
+          font-family: "Montserrat", sans-serif; font-weight: 900; font-size: 36px;
+          letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        }
+        .chip .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); }
+        .chip .mono { font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--accent); letter-spacing: 0; }
+        .chip.live { border-color: var(--cream); }
+        .chip.live .dot { background: #FF4D4D; }
+        .chip.small { height: 68px; padding: 0 30px; font-size: 30px; gap: 14px; }
+        .chip.small .dot { width: 16px; height: 16px; }
+
+        .plate {
+          position: relative; overflow: hidden; height: 150px; padding: 0 48px; border-radius: 38px;
+          display: flex; align-items: center; background: var(--accent); color: var(--ink);
+          font-family: "Montserrat", sans-serif; font-weight: 900; font-size: 104px; letter-spacing: 0.01em; line-height: 1;
+          box-shadow: 0 16px 60px rgba(0, 0, 0, 0.45);
+        }
+        .plate .shine {
+          position: absolute; top: -20px; bottom: -20px; left: 0; width: 150px;
+          background: linear-gradient(105deg, rgba(255,255,255,0), rgba(255,244,230,0.75), rgba(255,255,255,0));
+        }
+
+        .meter { position: absolute; left: 110px; width: 860px; }
+        .meter .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; }
+        .meter .lbl { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 30px; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+        .meter .pct { font-family: "Montserrat", sans-serif; font-weight: 900; font-size: 52px; color: var(--cream); text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+        .meter .track { height: 22px; border-radius: 11px; background: rgba(245, 238, 227, 0.28); overflow: hidden; }
+        .meter .fill { height: 100%; width: 100%; border-radius: 11px; background: var(--accent); transform-origin: 0 50%; }
+
+        .done { display: flex; align-items: center; gap: 22px; }
+        .done svg { width: 84px; height: 84px; }
+        .done .txt { font-family: "Montserrat", sans-serif; font-weight: 900; font-size: 44px; letter-spacing: 0.08em; color: var(--cream); text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+        #flash { position: absolute; inset: 0; background: #FFF3E3; opacity: 0; }
+      </style>
+
+      <div id="root" data-composition-id="graphics" data-width="1080" data-height="1920">
+        <!-- 1. opening badge -->
+        <div class="row left" style="top: 210px"><div id="badge" class="chip live"><i class="dot" id="badge-dot"></i><span>Live test</span></div></div>
+
+        <!-- 2. keyword title, lands on the spoken word -->
+        <div class="row" style="top: 205px"><div id="title" class="plate"><span>OPUS 5.5</span><i class="shine" id="title-shine" data-layout-allow-overflow></i></div></div>
+
+        <!-- 3. cutaway 1: what it's running on -->
+        <div class="row" style="top: 250px"><div id="chip-vm" class="chip"><span class="mono">&gt;_</span><span>Claude Code VM</span></div></div>
+
+        <!-- 4. cutaway 2: autonomy HUD -->
+        <div class="row" style="top: 378px"><div id="chip-auto" class="chip"><i class="dot" id="auto-dot"></i><span>Autonomous mode</span></div></div>
+        <div class="meter" id="meter-auto" style="top: 1092px">
+          <div class="head"><span class="lbl">Running task</span><span class="pct"><span id="auto-n">0</span>%</span></div>
+          <div class="track"><div class="fill" id="auto-fill"></div></div>
+        </div>
+        <div class="row" style="top: 1220px; gap: 24px">
+          <div class="chip small step" id="step-1"><i class="dot"></i><span>Plan</span></div>
+          <div class="chip small step" id="step-2"><i class="dot"></i><span>Code</span></div>
+          <div class="chip small step" id="step-3"><i class="dot"></i><span>Test</span></div>
+        </div>
+
+        <!-- 5. cutaway 3: upload HUD -->
+        <div class="row" style="top: 378px"><div id="chip-up" class="chip"><i class="dot" id="up-dot"></i><span>Uploading from phone</span></div></div>
+        <div class="meter" id="meter-up" style="top: 1092px">
+          <div class="head"><span class="lbl">Upload</span><span class="pct" id="up-pct"><span id="up-n">0</span>%</span></div>
+          <div class="track"><div class="fill" id="up-fill"></div></div>
+        </div>
+        <div class="row" style="top: 1205px"><div class="done" id="done">
+          <svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="40" fill="#EE7B3B"/><path id="check" d="M24 44 L37 57 L61 29" pathLength="1" fill="none" stroke="#16120F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+          <span class="txt">UPLOADED</span>
+        </div></div>
+
+        <div id="flash"></div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        window.__timelines["graphics"] = tl;
+        const EASE_OUT = "power3.out", EASE_IN = "power2.in";
+
+        // helper: element is invisible until its entrance, and again after its exit (explicit from-values → seek-safe)
+        function show(sel, t0, t1, from, to, dur) {
+          dur = dur || 0.34;
+          tl.fromTo(sel, Object.assign({ opacity: 0 }, from), Object.assign({ opacity: 1, duration: dur, ease: EASE_OUT }, to), t0);
+          tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: 0.16, ease: EASE_IN, immediateRender: false }, t1 - 0.16);
+        }
+        function flash(t, peak) {
+          tl.fromTo("#flash", { opacity: 0 }, { opacity: peak, duration: 0.03, ease: "none", immediateRender: false }, t);
+          tl.fromTo("#flash", { opacity: peak }, { opacity: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, t + 0.03);
+        }
+
+        // 1 — LIVE TEST badge (0.25 → 1.55)
+        show("#badge", 0.25, 1.55, { x: -80, scale: 0.9 }, { x: 0, scale: 1 }, 0.4);
+        tl.fromTo("#badge-dot", { scale: 1 }, { scale: 1.4, duration: 0.3, ease: "sine.inOut", repeat: 3, yoyo: true }, 0.3);
+
+        // 2 — OPUS 5.5 plate lands on the word (1.70 → 3.20) + one shine sweep
+        show("#title", 1.7, 3.2, { scale: 0.7, y: 24 }, { scale: 1, y: 0 }, 0.36);
+        tl.fromTo("#title-shine", { x: -200 }, { x: 640, duration: 0.55, ease: "power2.inOut" }, 1.98);
+
+        // 3 — Claude Code VM chip over cutaway 1 (3.35 → 4.267)
+        show("#chip-vm", 3.36, 4.267, { y: -34, scale: 0.9 }, { y: 0, scale: 1 }, 0.32);
+
+        // 4 — autonomy HUD over cutaway 2 (6.59 → 8.367)
+        show("#chip-auto", 6.68, 8.367, { y: -34, scale: 0.9 }, { y: 0, scale: 1 }, 0.32);
+        tl.fromTo("#auto-dot", { scale: 1 }, { scale: 1.4, duration: 0.28, ease: "sine.inOut", repeat: 5, yoyo: true }, 6.7);
+        show("#meter-auto", 6.72, 8.367, { y: 30 }, { y: 0 }, 0.32);
+        tl.fromTo("#auto-fill", { scaleX: 0 }, { scaleX: 1, duration: 1.45, ease: "power1.inOut" }, 6.78);
+        tl.fromTo("#auto-n", { textContent: 0 }, { textContent: 100, duration: 1.45, ease: "power1.inOut", snap: { textContent: 1 } }, 6.78);
+        [["#step-1", 7.0], ["#step-2", 7.42], ["#step-3", 7.84]].forEach(([s, t]) => show(s, t, 8.367, { scale: 0.6, y: 18 }, { scale: 1, y: 0 }, 0.26));
+
+        // 5 — upload HUD over cutaway 3 (8.90 → end)
+        const END = 9.9;
+        show("#chip-up", 8.98, END, { y: -34, scale: 0.9 }, { y: 0, scale: 1 }, 0.3);
+        tl.fromTo("#up-dot", { scale: 1 }, { scale: 1.4, duration: 0.22, ease: "sine.inOut", repeat: 3, yoyo: true }, 9.0);
+        tl.fromTo("#meter-up", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: EASE_OUT }, 8.98);
+        tl.fromTo("#up-fill", { scaleX: 0 }, { scaleX: 1, duration: 0.62, ease: "power1.inOut" }, 9.0);
+        tl.fromTo("#up-n", { textContent: 0 }, { textContent: 100, duration: 0.62, ease: "power1.inOut", snap: { textContent: 1 } }, 9.0);
+        tl.fromTo("#done", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: EASE_OUT }, 9.62);
+        tl.fromTo("#check", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.28, ease: "power2.out" }, 9.68);
+        tl.fromTo("#up-pct", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "power2.out" }, 9.62);
+
+        // flashes: cutaway in (strong), out (soft), jump cuts (tick)
+        flash(3.3, 0.5); flash(4.267, 0.2); flash(6.3, 0.14); flash(6.59, 0.5); flash(8.367, 0.2); flash(8.9, 0.5);
+      </script>
+    </template>
+  </body>
+</html>

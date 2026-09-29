@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; }
+        .cap {
+          position: absolute; left: 0; right: 0; top: 1430px;
+          display: flex; justify-content: center; align-items: center;
+          gap: 0.44em; opacity: 0; white-space: nowrap;
+          font-family: "Montserrat", sans-serif; font-weight: 900; text-transform: uppercase;
+          letter-spacing: 0.005em; line-height: 1;
+          transform-origin: 50% 60%;
+        }
+        .w {
+          display: inline-block; color: #F5EEE3;
+          -webkit-text-stroke: 0.13em #16120F; paint-order: stroke fill;
+          text-shadow: 0 0.06em 0.16em rgba(10, 6, 4, 0.55);
+          transform-origin: 50% 70%;
+        }
+      </style>
+      <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+        <div id="cap-layer"></div>
+      </div>
+      <script>
+        const CHUNKS = [{"t0": 0.09, "t1": 0.71, "w": [["HEY", 0.13, 0.41, 0], ["EVERYONE", 0.41, 0.75, 0]]}, {"t0": 0.71, "t1": 1.13, "w": [["SO", 0.75, 0.88, 0], ["THIS", 0.88, 1.03, 0], ["IS", 1.03, 1.17, 0]]}, {"t0": 1.13, "t1": 1.69, "w": [["A", 1.17, 1.25, 0], ["TEST", 1.25, 1.51, 0], ["OF", 1.51, 1.73, 0]]}, {"t0": 1.69, "t1": 2.74, "w": [["OPUS", 1.73, 2.08, 1], ["5.5", 2.08, 2.78, 1]]}, {"t0": 2.74, "t1": 3.24, "w": [["ON", 2.78, 2.91, 0], ["A", 2.91, 3.05, 0]]}, {"t0": 3.24, "t1": 4.267, "w": [["CLAUDE", 3.28, 3.57, 1], ["CODE", 3.61, 3.89, 1], ["VM", 3.91, 4.28, 1]]}, {"t0": 4.267, "t1": 4.647, "w": [["WE", 4.307, 4.467, 0], ["ARE", 4.467, 4.567, 0], ["JUST", 4.567, 4.687, 0]]}, {"t0": 4.647, "t1": 5.127, "w": [["CHECKING", 4.687, 4.937, 0], ["OUT", 4.937, 5.167, 0]]}, {"t0": 5.127, "t1": 5.767, "w": [["IF", 5.167, 5.367, 0], ["IT", 5.367, 5.587, 0], ["CAN", 5.587, 5.807, 0]]}, {"t0": 5.767, "t1": 6.32, "w": [["WORK", 5.807, 6.137, 0], ["AND", 6.137, 6.307, 0]]}, {"t0": 6.32, "t1": 6.94, "w": [["OPERATE", 6.36, 6.98, 0]]}, {"t0": 6.94, "t1": 8.09, "w": [["AUTONOMOUSLY", 6.98, 8.08, 1]]}, {"t0": 8.09, "t1": 8.687, "w": [["AND", 8.13, 8.38, 0], ["I'M", 8.387, 8.547, 0], ["GONNA", 8.547, 8.727, 0]]}, {"t0": 8.687, "t1": 9.107, "w": [["UPLOAD", 8.727, 8.967, 0], ["IT", 8.967, 9.147, 0]]}, {"t0": 9.107, "t1": 9.9, "w": [["FROM", 9.147, 9.347, 0], ["MY", 9.347, 9.527, 0], ["PHONE", 9.527, 9.807, 1]]}];
+        const CREAM = "#F5EEE3", ACCENT = "#EE7B3B";
+        const TITLE_SAFE_W = 860; // px — inside the 80% title-safe box
+        const layer = document.getElementById("cap-layer");
+        const tl = gsap.timeline({ paused: true });
+
+        function build() {
+          // deterministic width fit: measure with canvas after the font is ready, then size each chunk to fit the safe box
+          const ctx = document.createElement("canvas").getContext("2d");
+          CHUNKS.forEach((c, ci) => {
+            const text = c.w.map((x) => x[0]).join(" ");
+            ctx.font = '900 100px "Montserrat"';
+            const wpx = ctx.measureText(text).width * 1.03 + 0.18 * 100 * (c.w.length - 1);   // + the wider inter-word gap
+            const size = Math.max(64, Math.min(104, Math.floor((100 * TITLE_SAFE_W) / wpx)));
+            const el = document.createElement("div");
+            el.className = "cap"; el.id = "cap-" + ci; el.style.fontSize = size + "px";
+            c.w.forEach((x, wi) => {
+              const s = document.createElement("span");
+              s.className = "w"; s.id = "cap-" + ci + "-w" + wi; s.textContent = x[0];
+              el.appendChild(s);
+            });
+            layer.appendChild(el);
+
+            // chunk in: smooth settle (no overshoot) — then a hard kill at t1 so the next chunk owns the frame
+            tl.fromTo(el, { opacity: 0, scale: 0.82, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "power3.out" }, c.t0);
+            tl.set(el, { opacity: 0 }, c.t1);
+
+            // active word: colour + size pop on its start, released when the next word starts
+            c.w.forEach((x, wi) => {
+              const sp = document.getElementById("cap-" + ci + "-w" + wi);
+              const [, ws, , key] = x;
+              const next = c.w[wi + 1];
+              const releaseAt = next ? next[1] : c.t1;
+              tl.fromTo(sp, { color: CREAM, scale: 1 }, { color: ACCENT, scale: key ? 1.08 : 1.1, duration: 0.14, ease: "power3.out" }, ws);
+              if (!key) tl.fromTo(sp, { color: ACCENT, scale: 1.1 }, { color: CREAM, scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, releaseAt);
+              else tl.fromTo(sp, { scale: 1.08 }, { scale: 1.03, duration: 0.2, ease: "power2.out", immediateRender: false }, releaseAt);
+            });
+          });
+          window.__timelines["captions"] = tl; // register only after the async build completes
+        }
+        if (document.fonts && document.fonts.load) {
+          document.fonts.load('900 100px "Montserrat"').then(build, build);
+        } else build();
+      </script>
+    </template>
+  </body>
+</html>
