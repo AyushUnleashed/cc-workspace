@@ -22,5 +22,14 @@ python3 reframe.py work/source.mp4 work/clips.json work/out/   # NN_slug.mp4 + c
 | Stability | Speaker shots shorter than `--min-hold` (1.2s) are merged into neighbours; each shot has one locked crop, hard switches between |
 | Render | One ffmpeg pass, piecewise `crop` x on `t`, scaled to 1080×1920, audio copied as AAC |
 
+One command, if the clips are already picked (e.g. `selections/Bsxa_Yg1Xcw.clips.json`):
+
+```
+./clip.sh "https://youtu.be/Bsxa_Yg1Xcw" selections/Bsxa_Yg1Xcw.clips.json   # or a local .mp4 instead of the URL
+```
+
+YouTube's own captions are a shortcut for the transcript step when they're available:
+`yt-dlp --skip-download --write-auto-subs --sub-langs en-orig --sub-format json3 URL` gives word-level timings.
+
 `NN_slug.plan.json` lists every crop segment and why it was chosen, and `NN_slug_sheet.png` is a
 24-frame contact sheet for checking that a face is in frame throughout.
