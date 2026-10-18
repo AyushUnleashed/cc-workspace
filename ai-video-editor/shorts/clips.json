@@ -1,0 +1,262 @@
+{
+ "source": "work/source.mp4",
+ "transcript": "work/transcript.txt",
+ "speakers": {
+  "John Collison": "JOHN",
+  "Mark Zuckerberg": "MARK",
+  "Alexandr Wang": "ALEX"
+ },
+ "episode": "Cheeky Pint: Zuckerberg's $100 Billion Bet (https://youtu.be/XfdIhd1g6EI)",
+ "clips": [
+  {
+   "id": "01-ai-mma-coach",
+   "window": [
+    80,
+    190
+   ],
+   "title": "Zuck's AI corner coach",
+   "hook": "Mark has cameras in his gym and his agent coaches him between MMA rounds",
+   "why": "Zuck + MMA + AI is a pattern interrupt on any feed. Concrete, visual, funny ('you took 30 seconds, I only have 60'), and it lands on a big idea: everyone will write code without knowing it."
+  },
+  {
+   "id": "02-100b-check",
+   "window": [
+    3186,
+    3312
+   ],
+   "title": "Writing a $100B check before seeing the model",
+   "hook": "'Alex, are you sure this is going to work?'",
+   "why": "The episode's own cold open, for a reason: a giant number, real stakes, and a CFO pulling the AI chief aside to say failure would be 'really, really bad'. Tension with a clear landing."
+  },
+  {
+   "id": "03-hes-the-guy",
+   "window": [
+    6236,
+    6352
+   ],
+   "title": "Why Zuck bet on Alexandr Wang",
+   "hook": "'The social media guy working with the data guy?'",
+   "why": "Founder-on-founder conviction with a quotable, uncensored landing line. Addresses the skeptic's question head on, plus a laugh from the host's 'eighth wonder of the world' jab."
+  },
+  {
+   "id": "04-wrong-company",
+   "window": [
+    7374,
+    7490
+   ],
+   "title": "'Oh no, I've joined the wrong company'",
+   "hook": "A lead told Alex they didn't need a reasoning model",
+   "why": "Story structure in under a minute: setup, a shocking quote, a gut-punch reaction, then the turn (the CEO gets AI-pilled and the company follows). Insider drama people share."
+  },
+  {
+   "id": "05-four-things",
+   "window": [
+    6424,
+    6522
+   ],
+   "title": "4 things most CEOs wouldn't have done",
+   "hook": "John lists four moves other founder CEOs wouldn't make",
+   "why": "A numbered list is the most retention-friendly format there is: viewers stay to hear all four. It's a sharp outside read on Zuck's playbook (reboot the team, pay up, bet on potential, clear the calendar)."
+  },
+  {
+   "id": "06-watermelon",
+   "window": [
+    4432,
+    4555
+   ],
+   "title": "The watermelon",
+   "hook": "Zuck's agent shops for baking day with his 3-year-old",
+   "why": "Wholesome, human, and tied to a known meme (the livestream watermelon). It shows the product working without sounding like an ad."
+  },
+  {
+   "id": "07-agents-have-accounts",
+   "window": [
+    4560,
+    4632
+   ],
+   "title": "Is that Instacart account for me or for my agent?",
+   "hook": "Mark became an Instacart customer only because his agent needed one",
+   "why": "A counterintuitive business insight: agents don't just convert better, they create new customers. Short, clean, quotable for founder and e-commerce audiences."
+  },
+  {
+   "id": "08-phd-benchmarks",
+   "window": [
+    1494,
+    1772
+   ],
+   "title": "Don't outsource product thinking to a PhD student",
+   "hook": "Are AI benchmarks actually any good?",
+   "why": "A spicy, quotable take on benchmaxxing from people who train frontier models. AI Twitter loves this debate, and the 'PhD student who made a viral benchmark' line will travel."
+  },
+  {
+   "id": "09-frontier-cost",
+   "window": [
+    3316,
+    3394
+   ],
+   "title": "What it costs to train a frontier model",
+   "hook": "'Tens of billions of dollars is a good estimate'",
+   "why": "Hard numbers from someone who signs the checks ($15B a year to run a gigawatt, $50-60B to build one). Number-led clips get saved and shared."
+  },
+  {
+   "id": "10-burn-the-boats",
+   "window": [
+    3418,
+    3522
+   ],
+   "title": "Burn the boats",
+   "hook": "Some execs wanted to be more conservative. Zuck didn't.",
+   "why": "Conviction plus profanity plus a reframe: 'for it not to work out, AI overall has to fail.' The emotional arc and the logic land together."
+  },
+  {
+   "id": "11-lean-startup",
+   "window": [
+    3100,
+    3190
+   ],
+   "title": "Why Lean Startup doesn't work in AI",
+   "hook": "How do you build when the feedback loop is a year long?",
+   "why": "It challenges a sacred startup doctrine ('entrepreneurship on hard mode'). Founder-audience gold, and the question works as a hook."
+  },
+  {
+   "id": "12-insecure-overachievers",
+   "window": [
+    6732,
+    6792
+   ],
+   "title": "A team of insecure overachievers",
+   "hook": "Ask them where they'll be in 3 months: 'it's awful, we're screwed'",
+   "why": "A funny, relatable management trick (record the pessimism, replay it after you ship). Anyone who has worked with high performers will tag a coworker."
+  },
+  {
+   "id": "13-model-naming",
+   "window": [
+    819,
+    882
+   ],
+   "title": "AI model names are egregious",
+   "hook": "'The numbers go backwards?'",
+   "why": "A relatable gripe everybody has, from the people making a competing product. Quick, funny, and it explains a design choice (no model picker)."
+  },
+  {
+   "id": "14-out-of-fruits",
+   "window": [
+    2044,
+    2084
+   ],
+   "title": "Meta ran out of fruit names",
+   "hook": "Avocado, Watermelon... and nobody wants Durian",
+   "why": "Pure banter with real laughter, and insider codenames people love to learn. A light palate cleanser between the heavier clips."
+  },
+  {
+   "id": "15-deranged-posting",
+   "window": [
+    7904,
+    8034
+   ],
+   "title": "Zuck on Alex's 'deranged' tweets",
+   "hook": "'What do you make of Alex's deranged posting?'",
+   "why": "The host asks the question everyone wants to ask. Zuck's 'be authentic' answer and his admission that Alex's posts crack him up make it human and shareable."
+  },
+  {
+   "id": "16-no-moralizing",
+   "window": [
+    2838,
+    2904
+   ],
+   "title": "AI shouldn't lecture you",
+   "hook": "'You don't want a moralizing lecture for asking it to do the thing'",
+   "why": "A clear, opinionated stance on alignment that sets Meta apart from other labs. It plays into an argument people already love having about preachy chatbots, so the comments will fill up."
+  },
+  {
+   "id": "17-college-word-vomit",
+   "window": [
+    4988,
+    5028
+   ],
+   "title": "How college students actually use AI",
+   "hook": "They word-vomit for 15 minutes and let AI organise it",
+   "why": "A surprising, specific observation about Gen Z behaviour. Students will recognise themselves and everyone else will be curious. Short and self-contained."
+  },
+  {
+   "id": "18-talent-density-memo",
+   "window": [
+    1916,
+    2003
+   ],
+   "title": "The memo Alex sent Zuck 2 days after their first call",
+   "hook": "A 44-minute call, then 'here's what I'd do in your position'",
+   "why": "An origin story with a lesson (talent density over headcount). The 'that's how they get you' banter gives it warmth, and founders save hiring advice."
+  },
+  {
+   "id": "19-stay-technical",
+   "window": [
+    7566,
+    7628
+   ],
+   "title": "No non-technical managers",
+   "hook": "The point of 200 direct reports is no non-technical managers",
+   "why": "A contrarian org-design principle with a crisp warning: leaders lose technical touch faster than they think. Engineers will share it with their managers."
+  },
+  {
+   "id": "20-not-an-app-company",
+   "window": [
+    3866,
+    3920
+   ],
+   "title": "'We're not an app company'",
+   "hook": "Zuck: Meta is a deep technology company, 'just us and ByteDance' at this scale",
+   "why": "A bold identity claim with a competitor name-drop. It reframes how people see Meta in one breath."
+  },
+  {
+   "id": "21-invention-not-automation",
+   "window": [
+    3990,
+    4040
+   ],
+   "title": "Superintelligence is for invention, not automation",
+   "hook": "Everyone else is obsessed with automating knowledge work",
+   "why": "A vision statement that takes a swipe at the rest of the industry. It reads like a thesis and gets quote-tweeted."
+  },
+  {
+   "id": "22-very-bayesian",
+   "window": [
+    7716,
+    7790
+   ],
+   "title": "'Mark is very Bayesian'",
+   "hook": "Alex's review of Zuck as a boss",
+   "why": "Genuine praise, a nerdy compliment, and real laughter ('what lovely priors you have'). The banter makes it rewatchable."
+  },
+  {
+   "id": "23-patrick-2023",
+   "window": [
+    4716,
+    4774
+   ],
+   "title": "Telling Stripe it was behind, 3 years early",
+   "hook": "Alex told Patrick Collison in 2023 that agents would be buying things",
+   "why": "A prediction-came-true story that John can confirm on camera ('only started going vertical in September'). Credibility plus a little roast of the host's company."
+  },
+  {
+   "id": "24-protractors",
+   "window": [
+    6848,
+    6930
+   ],
+   "title": "AI researchers use actual protractors",
+   "hook": "Frontier AI research runs on vibes and protractors held up to the monitor",
+   "why": "A funny, humanising behind-the-scenes detail, and it ends with a satisfying payoff (the new model beat the old one 'immediately')."
+  },
+  {
+   "id": "25-wonder-full",
+   "window": [
+    1050,
+    1083
+   ],
+   "title": "Muse Wonder... Full",
+   "hook": "'You're clearly a father. This is an excellent dad joke.'",
+   "why": "A 15-20 second laugh, ideal as a loopable micro-short. Light, and it puts the product name in the joke."
+  }
+ ]
+}

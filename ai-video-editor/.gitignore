@@ -1,3 +1,6 @@
 prototype/out/
 prototype/footage/
 __pycache__/
+shorts/work/
+shorts/out/
+shorts/.cache/
