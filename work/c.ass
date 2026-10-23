@@ -1,0 +1,40 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: C,Inter,78,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,7,2,8,60,60,150,1
+[Events]
+Format: Layer,Start,End,Style,Name,Text
+Dialogue: 0,0:00:00.54,0:00:01.57,C,,OKAY, IF EDITING
+Dialogue: 0,0:00:01.52,0:00:02.39,C,,ONE VIDEO EATS
+Dialogue: 0,0:00:02.34,0:00:03.11,C,,YOUR WHOLE EVENING
+Dialogue: 0,0:00:03.06,0:00:04.27,C,,STILL LOOKS HOMEMADE
+Dialogue: 0,0:00:04.22,0:00:05.27,C,,AND MEANS YOU
+Dialogue: 0,0:00:05.22,0:00:05.93,C,,ONLY POST ONCE
+Dialogue: 0,0:00:05.88,0:00:07.27,C,,A WEEK, HERE'S
+Dialogue: 0,0:00:07.22,0:00:07.67,C,,HOW I CHEATED
+Dialogue: 0,0:00:08.14,0:00:08.47,C,,I USED TO
+Dialogue: 0,0:00:08.42,0:00:09.21,C,,RECORD FOR 10
+Dialogue: 0,0:00:09.16,0:00:10.07,C,,MINUTES AND THEN
+Dialogue: 0,0:00:10.02,0:00:10.85,C,,EDIT FOR FOUR
+Dialogue: 0,0:00:10.80,0:00:12.33,C,,HOURS SO I
+Dialogue: 0,0:00:12.28,0:00:12.99,C,,WAS POSTING MAYBE
+Dialogue: 0,0:00:12.94,0:00:13.69,C,,ONCE A WEEK
+Dialogue: 0,0:00:14.24,0:00:14.83,C,,SO NOW I
+Dialogue: 0,0:00:14.78,0:00:15.79,C,,RECORD ONE TAKE
+Dialogue: 0,0:00:15.74,0:00:16.87,C,,DROP IT INTO
+Dialogue: 0,0:00:16.82,0:00:18.15,C,,THIS TOOL AND
+Dialogue: 0,0:00:18.10,0:00:18.97,C,,IT'S DONE BEFORE
+Dialogue: 0,0:00:18.92,0:00:19.81,C,,MY COFFEE'S EVEN
+Dialogue: 0,0:00:19.76,0:00:21.05,C,,COLD. NOW I'M
+Dialogue: 0,0:00:21.00,0:00:22.31,C,,POSTING EVERY SINGLE
+Dialogue: 0,0:00:22.26,0:00:23.49,C,,DAY. THIS VIDEO
+Dialogue: 0,0:00:23.44,0:00:24.05,C,,YOU JUST WATCHED
+Dialogue: 0,0:00:24.50,0:00:25.09,C,,I DIDN'T EDIT
+Dialogue: 0,0:00:25.04,0:00:25.67,C,,ANY OF IT
+Dialogue: 0,0:00:25.98,0:00:26.73,C,,IT'S CALLED PUNCH
+Dialogue: 0,0:00:26.68,0:00:28.19,C,,EDIT. COMMENT EDIT
+Dialogue: 0,0:00:28.14,0:00:28.79,C,,AND I'LL SEND
+Dialogue: 0,0:00:28.74,0:00:29.21,C,,YOU THE LINK
